@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-	<script src="ext/gl-matrix.js"></script>
-	<script src="vertexData_cube.js"></script>
-	<script src="vertexData_sphere.js"></script>
-	<script src="vertexData_plane.js"></script>
-	<script src="script.js"></script>
-	<script type="x-shader/x-vertex" id="vertexshader">
-		attribute vec3 aPosition;
+    <script src="ext/gl-matrix.js"></script>
+    <script src="vertexData_cube.js"></script>
+    <script src="vertexData_sphere.js"></script>
+    <script src="vertexData_plane.js"></script>
+    <script src="script.js"></script>
+    <script type="x-shader/x-vertex" id="vertexshader">
+        attribute vec3 aPosition;
         attribute vec3 aNormal;
 
         uniform mat4 uPMatrix;
@@ -20,22 +20,54 @@
             vColor = vec4(aNormal.x, aNormal.y, aNormal.z, 1.0);
             vColor = (vColor + 1.0) / 2.0;
         }
-	</script>
-	<script type="x-shader/x-fragment" id="fragmentshader">
-		precision mediump float;
+    </script>
+    <script type="x-shader/x-fragment" id="fragmentshader">
+        precision mediump float;
         varying vec4 vColor;
 
         void main() {
             gl_FragColor = vColor;
         }
-	</script>
-	<title>ESA 5</title>
+    </script>
+    <title>ESA 5</title>
 </head>
 <body onload="app.start()">
-<canvas id="canvas" width="500" height="500"></canvas>
-<div>
-	<button onclick="changeRecursionDepth(1)">+</button>
-	<button onclick="changeRecursionDepth(-1)">-</button>
+<div id="container">
+	<canvas id="canvas" width="800" height="600"></canvas>
+	<div id="documentation">
+		<h1>ESA 5 - Kamerabewegung</h1>
+		<h3>Dokumentation</h3>
+		<div>TODO</div>
+	</div>
+</div>
+<div id="recursion">
+	<div>Rekursionstiefe</div>
+    <button onclick="changeRecursionDepth(1)">+</button>
+    <button onclick="changeRecursionDepth(-1)">-</button>
 </div>
 </body>
+<style lang="css">
+	body {
+		font-family: 'Roboto', sans-serif;
+		background-color: beige;
+	}
+	#container {
+		display: flex;
+		margin: 20px;
+	}
+	#recursion, #documentation {
+		margin-left: 20px;
+	}
+	button {
+		background-color: #c4ffff;
+		padding: 5px 10px;
+		border-radius: 1rem;
+		cursor: pointer;
+		font-size: 16px;
+		margin-top: 5px;
+	}
+	button:hover {
+		background-color: azure;
+	}
+</style>
 </html>

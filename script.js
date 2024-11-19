@@ -5,7 +5,7 @@ var app = (function() {
 	var recursionLevel = 3; // Initial recursion level
 
 	var camera = {
-		eye: [0, 1, 4],
+		eye: [0, 1, 8], // Erhöhen Sie die Z-Position der Kamera, um mehr vom Raum zu sehen
 		center: [0, 0, 0],
 		up: [0, 1, 0],
 		fovy: 60.0 * Math.PI / 180,
@@ -14,7 +14,7 @@ var app = (function() {
 		pMatrix: mat4.create(),
 		projectionType: "perspective",
 		zAngle: 0,
-		distance: 4,
+		distance: 8, // Erhöhen Sie die Distanz, um mehr vom Raum zu sehen
 	};
 
 	function start() {
@@ -240,8 +240,8 @@ var app = (function() {
 		}
 	}
 
-// App interface.
-return {
-	start: start
-}
+	// App interface.
+	return {
+		start: start
+	}
 }());
