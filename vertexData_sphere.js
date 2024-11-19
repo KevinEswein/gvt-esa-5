@@ -1,7 +1,5 @@
 var sphere = (function() {
-  function createVertexData() {
-    var recursionLevel = 3; // Initial recursion level
-
+  function createVertexData(recursionLevel) {
     // Vertices of an icosahedron
     var t = (1.0 + Math.sqrt(5.0)) / 2.0;
     var vertices = [
